@@ -1,0 +1,37 @@
+#bubble sort
+
+#it is the simplest sorting algorithm
+#it is the one algorithm which we use in daily life
+#In this we compare 2 adjesent elements of an array and swap them if they are not in correct order
+
+
+----------------------------------------------------------------------------------------------------------
+#Bubble sort code
+
+def bubbleSort(arr):
+    changesDone=False
+    i,j=0,1
+    while True:
+        if arr[i]>arr[j]:
+            arr[i],arr[j]=arr[j],arr[i]
+            changesDone=True
+        i+=1
+        j+=1
+        if j==len(arr):
+            if changesDone==False:
+                break
+            i=0
+            j=1
+            changesDone=False
+            
+
+----------------------------------------------------------------------------------------------------------
+#input
+
+print("Input an arrey")
+array=list(map(int,input().split()))
+print("The array is :",end=" ")
+print(array)
+bubbleSort(array)
+print("The bubble-sorted array is :",end=" ")
+print(array)
