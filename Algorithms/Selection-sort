@@ -1,0 +1,37 @@
+# SELECTION SORT
+
+#In this sorting algo, we repeatedly find min element in the array and swap that min value element with front element of the array
+#Selection-sort code
+
+#complexicity of Selection-sort:
+#   space : O(1)
+#   time : O(n^2) in every case
+
+# --------------------------------------------------------------------------------
+
+def selectionSort(arr):
+    i=0
+    while i<len(arr):
+        minIndex=i
+        for j in range(i,len(arr)):
+            if arr[j]<arr[minIndex]:
+                minIndex=j
+        arr[i],arr[minIndex]=arr[minIndex],arr[i]
+        
+        i+=1
+    
+
+
+
+
+
+# --------------------------------------------------------------------------------
+
+#input
+print("Input an arrey")
+array=list(map(int,input().split()))
+print("The array is :",end=" ")
+print(array)
+selectionSort(array)
+print("The selection-sorted array is :",end=" ")
+print(array)
