@@ -1,0 +1,69 @@
+# MERGE SORT
+
+#In this sorting algo we take a recurrsive approch, firstly we merge sort Ist half of array and then we merge sort IInd half of array.After getting merge sorted sub-arrays, we merge them both.
+
+#COMPLEXICITY
+#   space : O(n)
+#   time : O( n*log(n) )
+
+
+# --------------------------------------------------------------------------------
+
+
+def mergeSort(arr):
+    length_of_array=len(arr)
+
+    if length_of_array==1 or length_of_array==0:
+        return
+
+    sorted_first_half_of_array=arr[:length_of_array//2]
+    mergeSort(sorted_first_half_of_array)
+    sorted_second_half_of_array=arr[length_of_array//2:]
+    mergeSort(sorted_second_half_of_array)
+
+    i,j,index=0,0,0
+
+    while i<len(sorted_first_half_of_array) and j<len(sorted_second_half_of_array):
+        if sorted_first_half_of_array[i]<sorted_second_half_of_array[j]:
+            # new_array.append(sorted_first_half_of_array[i])
+            arr[index]=sorted_first_half_of_array[i]
+            i+=1
+        else:
+            # new_array.append(sorted_second_half_of_array[j])
+            arr[index]=sorted_second_half_of_array[j]
+            j+=1
+
+        index+=1
+
+
+    while i<len(sorted_first_half_of_array):
+        # new_array.append(sorted_first_half_of_array[i])
+        arr[index]=sorted_first_half_of_array[i]
+        index+=1
+        i+=1
+
+
+    while j<len(sorted_second_half_of_array):
+        # new_array.append(sorted_second_half_of_array[j])
+        arr[index]=sorted_second_half_of_array[j]
+        j+=1
+        index+=1
+
+    return
+
+
+    # 2 3 5 1 60 02 2 4 6 0 5
+
+
+
+# 3 4 2 1 7 0
+# --------------------------------------------------------------------------------
+
+#input
+print("Input an arrey")
+array=list(map(int,input().split()))
+print("The array is :",end=" ")
+print(array)
+mergeSort(array)
+print("The merge-sorted array is :",end=" ")
+print(array)
