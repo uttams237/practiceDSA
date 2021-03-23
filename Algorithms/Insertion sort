@@ -1,0 +1,51 @@
+# SELECTION SORT
+
+#In this sorting algo, we repeatedly find min element in the array and swap that min value element with front element of the array
+#Selection-sort code
+
+#complexicity of Selection-sort:
+#   space : O(1)
+#   time : O(n^2) in every case
+
+# --------------------------------------------------------------------------------
+
+def placeCorrectly(i,arr):
+    if arr[i]>arr[i-1]:
+        return
+    temp=arr[i]
+    i=i-1
+    while True:
+        if i==-1:
+            return
+        if arr[i]>temp:
+            arr[i+1]=arr[i]
+            if i==0:
+                arr[0]=temp
+            i=i-1
+        else:
+            arr[i+1]=temp
+            return
+        # i=i-1
+
+
+def insertionSort(arr):
+    i=1 # arr[:1] is sorted  and arr[1:] is unsorted
+    while i<len(arr):
+        placeCorrectly(i,arr)
+        i+=1
+    
+
+
+
+
+# 3 4 2 1 7 0
+# --------------------------------------------------------------------------------
+
+#input
+print("Input an arrey")
+array=list(map(int,input().split()))
+print("The array is :",end=" ")
+print(array)
+insertionSort(array)
+print("The selection-sorted array is :",end=" ")
+print(array)
