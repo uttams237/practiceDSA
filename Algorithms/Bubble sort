@@ -4,8 +4,12 @@
 #it is the one algorithm which we use in daily life
 #In this we compare 2 adjesent elements of an array and swap them if they are not in correct order
 
+#complexicity of Bubble-sort:
+#   space : O(1)
+#   time : O(n^2) in worst and avg case and O(n) in best case
 
-----------------------------------------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------------------------------------
 #Bubble sort code
 
 def bubbleSort(arr):
@@ -25,7 +29,7 @@ def bubbleSort(arr):
             changesDone=False
             
 
-----------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------
 #input
 
 print("Input an arrey")
