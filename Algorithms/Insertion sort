@@ -1,11 +1,11 @@
-# SELECTION SORT
+# INSERTION SORT
 
-#In this sorting algo, we repeatedly find min element in the array and swap that min value element with front element of the array
-#Selection-sort code
+#In this sorting algo, we devide array into 2 sub array.The left part is sorted and right one is unsorted.Now we pick Ist element from unsorted and insert it at its correct position in sorted array 
+
 
 #complexicity of Selection-sort:
 #   space : O(1)
-#   time : O(n^2) in every case
+#   time : O(n^2) in worst&avg case   and   O(n) in best case
 
 # --------------------------------------------------------------------------------
 
@@ -47,5 +47,5 @@ array=list(map(int,input().split()))
 print("The array is :",end=" ")
 print(array)
 insertionSort(array)
-print("The selection-sorted array is :",end=" ")
+print("The insertion-sorted array is :",end=" ")
 print(array)
