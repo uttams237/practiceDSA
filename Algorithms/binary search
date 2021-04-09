@@ -1,0 +1,34 @@
+#binary search
+
+#It is a searching algorithm which can be applied only if the array/list is sorted
+
+#complexcity :-
+#   time : O(logn)  (for avg and worst case)
+#          O(1)   (for best case)
+
+
+
+
+#Binary search function
+def binarySearch(arr,n):
+    i,j=0,len(arr)-1
+    while i<=j:
+        print("exic")
+        mid=(i+j)//2
+        if arr[mid]==n:
+            return mid
+        if arr[mid]<n:
+            i=mid+1
+        elif arr[mid]>n:
+            j=mid-1
+    return "Not found in array"
+
+
+#input
+while True:
+    print("Input array(make sure array is sorted) :",end=" ")
+    arr=list(int(i) for i in input().split())   #input array
+    print("Num you want to find :",end=" ")
+    n=int(input())
+
+    print(binarySearch(arr,n))
