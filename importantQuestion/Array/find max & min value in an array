@@ -1,0 +1,21 @@
+# Maximum and minimum of an array using minimum number of comparisons
+
+def findMaxMin(arr):
+    i,maxN,minN=0,arr[0],arr[0]
+    while i<len(arr):
+        if arr[i]>maxN:
+            maxN=arr[i]
+        elif arr[i]<minN:
+            minN=arr[i]
+        i+=1
+    return maxN,minN
+
+
+
+# main
+while True:
+    print("input array on numbers : ",end="")
+    array=[int(ele) for ele in input().split()]
+    maxNum,minNum=findMaxMin(array)
+    print("Max value number is",maxNum)
+    print("Min value number is",minNum)
