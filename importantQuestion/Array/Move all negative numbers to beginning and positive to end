@@ -1,0 +1,22 @@
+# Move all negative numbers to beginning and positive to end with constant extra space
+
+
+
+def seperateNegativeAndPositive(array):
+    k=0
+    for i in range(len(array)):
+        if array[i]<0:
+            array[i],array[k]=array[k],array[i]
+            k+=1
+
+
+
+
+
+# main
+while True:
+    print("Input array with positive and negative numbers : ",end="")
+    array=[int(ele) for ele in input().split()]
+    print("Original array :",array)
+    seperateNegativeAndPositive(array)
+    print("Original array :",array)
