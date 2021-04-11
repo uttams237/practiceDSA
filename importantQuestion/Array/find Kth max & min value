@@ -1,0 +1,16 @@
+#Kth maximum and minimum of array,where all elements are unique
+
+def findKthMaxMin(arr,k):
+    arr.sort()
+    l=len(arr)
+    return arr[l-k],arr[k-1]
+
+
+# main
+while True:
+    print("input array of unique numbers : ",end="")
+    array=[int(ele) for ele in input().split()]
+    k=int(input("value of k : "))
+    maxNum,minNum=findKthMaxMin(array,k)
+    print("Kth Max value number is",maxNum)
+    print("Kth Min value number is",minNum)
