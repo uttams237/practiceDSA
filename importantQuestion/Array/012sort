@@ -1,0 +1,27 @@
+#Kth maximum and minimum of array,where all elements are unique
+
+def sort012WithoutSortingAlgo(array,n):
+    # we run 2 seperate loops, so that we can seperate 0s in front of the array and second loop for 2s to place them at last positions
+    k=0
+    for i in range(n):
+        if array[i]==0:
+            array[i],array[k]=array[k],array[i]
+            k+=1
+    k=(n-1)
+    for i in range(n-1,-1,-1):
+        if array[i]==2:
+            array[i],array[k]=array[k],array[i]
+            k-=1
+
+
+
+
+
+# main
+while True:
+    n=int(input("size of array : "))
+    print("input array of 0,1,2 numbers only : ",end="")
+    array=[int(ele) for ele in input().split()]
+    print("Original array is :",array)
+    sort012WithoutSortingAlgo(array,n)
+    print("012sorted array is :",array)
