@@ -1,0 +1,63 @@
+# Union and Intersection of 2 arrays
+
+
+#Union array : New array must contain every element present in both provided arrays and if an element is present in both of the array,it should be considered only once for appending in new array
+def unionArrays(arr1,arr2):
+    tempArr=[]
+    i,j=0,0
+    l1,l2=len(arr1),len(arr2)
+    while i<l1 and j<l2:
+        if arr2[j]<arr1[i]:
+            tempArr.append(arr2[j])
+            j+=1
+        elif arr1[i]<arr2[j]:
+            tempArr.append(arr1[i])
+            i+=1
+        else:
+            tempArr.append(arr1[i])
+            i+=1
+            j+=1
+    tempArr.extend(arr1[i:])
+    tempArr.extend(arr2[j:])
+
+    return tempArr
+
+
+
+
+#Intersetion array : New array having only those elements which are common in both of the provided arrays
+def intersectionArrays(arr1,arr2):
+    tempArr=[]
+    i,j=0,0
+    l1,l2=len(arr1),len(arr2)
+    while i<l1 and j<l2:
+        if arr1[i]==arr2[j]:
+            tempArr.append(arr1[i])
+            i+=1
+            j+=1
+        elif arr1[i]<arr2[j]:
+            i+=1
+        else:
+            j+=1
+    return tempArr
+
+
+
+
+
+
+
+
+
+#main
+while True:
+    print("Input 1st array : ",end="")
+    arr1=[int(ele) for ele in input().split()]
+    print("Input 2nd array : ",end="")
+    arr2=[int(ele) for ele in input().split()]
+    arr1.sort()
+    arr2.sort()
+    unionArray=unionArrays(arr1,arr2)
+    intersectionArray=intersectionArrays(arr1,arr2)
+    print("Union array :",unionArray)
+    print("Intersection array :",intersectionArray)
