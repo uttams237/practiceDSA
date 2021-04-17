@@ -1,0 +1,25 @@
+# Cyclically rotate an array by one
+
+
+#function
+def rotateBy1(arr):
+    lastIndex=len(arr)-1
+    if lastIndex==-1:
+        return
+    temp=arr[lastIndex]
+    for i in range(lastIndex-1,-1,-1):
+        arr[i+1]=arr[i]
+    arr[0]=temp
+
+
+
+
+
+
+#main
+while True:
+    print("Input array : ",end="")
+    arr=[int(ele) for ele in input().split()]
+    print("Original array is :",arr)
+    rotateBy1(arr)
+    print("Rotated array is :",arr)
