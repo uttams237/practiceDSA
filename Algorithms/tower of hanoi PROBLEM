@@ -1,0 +1,15 @@
+def towerofhanoi(n, source, aux, dest): #move "n" disks from "source" to "destination" using empty "aux"
+    if n==1:
+        print(source,dest)
+        return
+    if n==0:
+        return
+    
+    towerofhanoi(n-1,source,dest,aux)   #move "n-1" disks(leaving biggest disk in source rod) from "source" to "aux" using "dest" rod
+    print(source,dest)  #moving 1 remaining biggest disk from "source" rod to "dest" rod
+    towerofhanoi(n-1,aux,source,dest)   #move "n-1" disks from "aux" to "dest" using "source" rod
+    
+    
+
+n=int(input())
+towerofhanoi(n, 'a', 'b', 'c')
