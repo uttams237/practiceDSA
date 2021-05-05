@@ -1,0 +1,31 @@
+#PREFIX MATRIX
+def prefix(arr,rowNum,colNum):
+    newArr=[]
+    for i in range(rowNum):
+        sum=0
+        newArr2=[]
+        for j in range(colNum):
+            sum+=arr[i][j]
+            if i==0:
+                newArr2.append(sum)
+            else:
+                newArr2.append(sum+newArr[i-1][j])
+        newArr.append(newArr2)
+
+    return newArr
+
+# 4 4
+# 1 2 3 4
+# 5 6 7 8       
+# 9 10 11 12    
+# 13 14 15 16
+
+while True:
+    #input 2D array
+    m,n=map(int,input().split())    # m:rows , n:colunm
+    arr=[[int(ele) for ele in input().split()] for i in range(m)]
+    # print(arr)
+    prefixArr=prefix(arr,m,n)
+    # print(prefixArr)
+    for smallArr in prefixArr:
+        print(smallArr)
