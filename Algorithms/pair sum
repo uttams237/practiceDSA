@@ -1,0 +1,57 @@
+
+from sys import stdin
+
+def pairSum(arr, S):
+    length=len(arr)
+    if length<2:
+        return []
+    ans=[]
+    
+    if len(list(set(arr)))==1:
+        if arr[0]+arr[1]==S:
+            for _ in range((length*(length-1))//2):
+                ans.append([arr[0],arr[1]])
+        return ans
+    
+    
+    
+    i,j=0,len(arr)-1
+    
+    while i<j:
+        if arr[i]+arr[j]>S:
+            j=j-1
+        elif arr[i]+arr[j]<S:
+            i+=1
+        else:
+            tempI,tempJ=1,1
+            while i<j:
+                # i+=1
+                if arr[i]==arr[i+1]:
+                    i+=1
+                    tempI+=1
+                else:
+                    break
+            while i<j:
+                # j-=1
+                if arr[j]==arr[j-1]:
+                    j-=1
+                    tempJ+=1
+                else:
+                    break
+            for _ in range(tempI*tempJ):
+                ans.append([arr[i],arr[j]])
+            i+=1
+            j-=1
+    return ans
+    # Write your function here.
+
+
+
+# Main Code
+n,S = list(map(int, stdin.readline().strip().split(" ")))
+arr = list(map(int, stdin.readline().strip().split(" ")))
+arr.sort()
+res = pairSum(arr, S)
+
+for ele in res:
+    print(*ele)
