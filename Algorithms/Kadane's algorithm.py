@@ -4,25 +4,17 @@
 import sys
 
 
-#function
-def kadane_algo(array,size):
-    max_so_far= -sys.maxsize-1
-    starting_index=0
-    ending_index=0
-    temp_max=0
+def kadane_algo(self,arr,n):
+#     n : lenght of arr
+    dp=[arr[0]]
+    maxTillNow= dp[0]
 
-    for i in range(size):
-        temp_max=temp_max+array[i]
-        if temp_max>max_so_far:
-            max_so_far=temp_max
-            ending_index=i
+    for i in range(1,n):
+        temp=max(arr[i], arr[i]+dp[-1])
+        maxTillNow= max(maxTillNow, temp)
+        dp.append(temp)
 
-        if temp_max<0:
-            temp_max=0
-            starting_index=i+1
-
-    return starting_index,ending_index, max_so_far
-
+    return maxTillNow
 
 
 
